@@ -1,0 +1,12 @@
+{
+    "name": "title",
+    "description": "Get anime by title.",
+    "options": [
+        {
+            "name": "title",
+            "description": "anime title",
+            "type": 3,
+            "required": true
+        }
+    ]
+}
