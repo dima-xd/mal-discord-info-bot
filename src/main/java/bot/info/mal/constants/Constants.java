@@ -7,7 +7,8 @@ public class Constants {
     public static final String FIELDS_PARAMETER = "fields";
 
     public static final String MAL_CLIENT_ID = "X-MAL-CLIENT-ID";
-    public static final String MAL_URL = "https://myanimelist.net/anime/";
+    public static final String MAL_ANIME_URL = "https://myanimelist.net/anime/";
+    public static final String MAL_MANGA_URL = "https://myanimelist.net/manga/";
 
     public static final String DATA_JSON_OBJECT = "data";
     public static final String NODE_JSON_OBJECT = "node";

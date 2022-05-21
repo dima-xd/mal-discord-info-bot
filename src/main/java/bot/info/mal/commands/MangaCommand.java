@@ -11,7 +11,8 @@ import reactor.core.publisher.Mono;
 
 import java.time.Instant;
 
-import static bot.info.mal.constants.Constants.MAL_URL;
+import static bot.info.mal.constants.Constants.MAL_ANIME_URL;
+import static bot.info.mal.constants.Constants.MAL_MANGA_URL;
 
 public class MangaCommand implements SlashCommand {
     @Override
@@ -42,8 +43,8 @@ public class MangaCommand implements SlashCommand {
         return EmbedCreateSpec.builder()
                 .color(Color.GREEN)
                 .title(manga.getTitle() + "(" + manga.getMediaType().toUpperCase() + ")")
-                .url(MAL_URL + manga.getId())
-                .author("MyAnimeList", MAL_URL + manga.getId(), "https://upload.wikimedia.org/wikipedia/commons/7/7a/MyAnimeList_Logo.png")
+                .url(MAL_MANGA_URL + manga.getId())
+                .author("MyAnimeList", MAL_ANIME_URL + manga.getId(), "https://upload.wikimedia.org/wikipedia/commons/7/7a/MyAnimeList_Logo.png")
                 .thumbnail("https://upload.wikimedia.org/wikipedia/commons/7/7a/MyAnimeList_Logo.png")
                 .addField("Score", manga.getMean().toString(), false)
                 .addField("Rank", String.valueOf(manga.getRank()), true)
