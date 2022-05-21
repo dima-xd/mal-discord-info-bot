@@ -10,6 +10,7 @@ import discord4j.rest.util.Color;
 import reactor.core.publisher.Mono;
 
 import java.time.Instant;
+import java.util.List;
 
 import static bot.info.mal.constants.Constants.*;
 
@@ -49,9 +50,11 @@ public class AnimeCommand implements SlashCommand {
                 .addField("Rank", String.valueOf(anime.getRank()), true)
                 .addField("Popularity", String.valueOf(anime.getPopularity()), true)
                 .addField("Episodes", String.valueOf(anime.getNumEpisodes()), false)
+                .addField("Genres", anime.getGenres().toString(), false)
                 .description(anime.getSynopsis())
                 .image(anime.getLargeImage())
                 .timestamp(Instant.now())
                 .build();
     }
+
 }

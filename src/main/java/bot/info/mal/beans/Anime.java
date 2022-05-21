@@ -1,5 +1,7 @@
 package bot.info.mal.beans;
 
+import java.util.List;
+
 public class Anime {
     private int id;
     private String title;
@@ -9,9 +11,10 @@ public class Anime {
     private int rank;
     private int popularity;
     private String mediaType;
+    private List<String> genres;
     private int numEpisodes;
 
-    public Anime(int id, String title, String largeImage, String synopsis, Double mean, int rank, int popularity, String mediaType, int numEpisodes) {
+    public Anime(int id, String title, String largeImage, String synopsis, Double mean, int rank, int popularity, String mediaType, List<String> genres, int numEpisodes) {
         this.id = id;
         this.title = title;
         this.largeImage = largeImage;
@@ -20,6 +23,7 @@ public class Anime {
         this.rank = rank;
         this.popularity = popularity;
         this.mediaType = mediaType;
+        this.genres = genres;
         this.numEpisodes = numEpisodes;
     }
 
@@ -53,6 +57,10 @@ public class Anime {
 
     public String getMediaType() {
         return mediaType;
+    }
+
+    public List<String> getGenres() {
+        return genres;
     }
 
     public int getNumEpisodes() {

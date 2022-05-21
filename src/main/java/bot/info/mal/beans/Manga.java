@@ -1,5 +1,7 @@
 package bot.info.mal.beans;
 
+import java.util.List;
+
 public class Manga {
     private int id;
     private String title;
@@ -9,9 +11,10 @@ public class Manga {
     private int rank;
     private int popularity;
     private String mediaType;
+    private List<String> genres;
     private int numChapters;
 
-    public Manga(int id, String title, String largeImage, String synopsis, Double mean, int rank, int popularity, String mediaType, int numChapters) {
+    public Manga(int id, String title, String largeImage, String synopsis, Double mean, int rank, int popularity, String mediaType, List<String> genres, int numChapters) {
         this.id = id;
         this.title = title;
         this.largeImage = largeImage;
@@ -20,6 +23,7 @@ public class Manga {
         this.rank = rank;
         this.popularity = popularity;
         this.mediaType = mediaType;
+        this.genres = genres;
         this.numChapters = numChapters;
     }
 
@@ -53,6 +57,10 @@ public class Manga {
 
     public String getMediaType() {
         return mediaType;
+    }
+
+    public List<String> getGenres() {
+        return genres;
     }
 
     public int getNumChapters() {

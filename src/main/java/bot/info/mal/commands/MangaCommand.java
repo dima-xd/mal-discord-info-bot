@@ -50,6 +50,7 @@ public class MangaCommand implements SlashCommand {
                 .addField("Rank", String.valueOf(manga.getRank()), true)
                 .addField("Popularity", String.valueOf(manga.getPopularity()), true)
                 .addField("Chapters", String.valueOf(manga.getNumChapters()), false)
+                .addField("Genres", manga.getGenres().toString(), false)
                 .description(manga.getSynopsis())
                 .image(manga.getLargeImage())
                 .timestamp(Instant.now())

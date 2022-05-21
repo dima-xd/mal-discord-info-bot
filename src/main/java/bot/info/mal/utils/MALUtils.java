@@ -2,6 +2,7 @@ package bot.info.mal.utils;
 
 import bot.info.mal.beans.Anime;
 import bot.info.mal.beans.Manga;
+import org.apache.commons.codec.binary.StringUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
@@ -16,6 +17,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import static bot.info.mal.constants.Constants.*;
 
@@ -52,13 +56,19 @@ public class MALUtils {
 
             JSONObject animeObj = new JSONObject(EntityUtils.toString(responseAnime.getEntity()));
             JSONObject mainPictureObj = animeObj.getJSONObject(MAIN_PICTURE_OBJECT);
+            JSONArray genresArray = animeObj.getJSONArray(GENRES_OBJECT);
+
+            List<String> genres = new ArrayList<>();
+            for (int i = 0; i < genresArray.length(); i++) {
+                genres.add(genresArray.getJSONObject(i).getString(NAME));
+            }
 
             httpClient.close();
             response.close();
             responseAnime.close();
             return new Anime(nodeObj.getInt(ID), animeObj.getString(TITLE), mainPictureObj.getString(LARGE), animeObj.getString(SYNOPSIS),
                     animeObj.getDouble(MEAN), animeObj.getInt(RANK), animeObj.getInt(POPULARITY),
-                    animeObj.getString(MEDIA_TYPE), animeObj.getInt(NUM_EPISODES));
+                    animeObj.getString(MEDIA_TYPE), genres, animeObj.getInt(NUM_EPISODES));
         } catch (URISyntaxException | IOException e) {
             LOGGER.error(e.getMessage());
         }
@@ -91,13 +101,19 @@ public class MALUtils {
 
             JSONObject mangaObj = new JSONObject(EntityUtils.toString(responseManga.getEntity()));
             JSONObject mainPictureObj = mangaObj.getJSONObject(MAIN_PICTURE_OBJECT);
+            JSONArray genresArray = mangaObj.getJSONArray(GENRES_OBJECT);
+
+            List<String> genres = new ArrayList<>();
+            for (int i = 0; i < genresArray.length(); i++) {
+                genres.add(genresArray.getJSONObject(i).getString(NAME));
+            }
 
             httpClient.close();
             response.close();
             responseManga.close();
             return new Manga(nodeObj.getInt(ID), mangaObj.getString(TITLE), mainPictureObj.getString(LARGE), mangaObj.getString(SYNOPSIS),
                     mangaObj.getDouble(MEAN), mangaObj.getInt(RANK), mangaObj.getInt(POPULARITY),
-                    mangaObj.getString(MEDIA_TYPE), mangaObj.getInt(NUM_CHAPTERS));
+                    mangaObj.getString(MEDIA_TYPE), genres, mangaObj.getInt(NUM_CHAPTERS));
         } catch (URISyntaxException | IOException e) {
             LOGGER.error(e.getMessage());
         }
