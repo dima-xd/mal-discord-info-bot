@@ -1,7 +1,8 @@
 package bot.info.mal.listeners;
 
+import bot.info.mal.commands.MangaCommand;
 import bot.info.mal.commands.SlashCommand;
-import bot.info.mal.commands.TitleCommand;
+import bot.info.mal.commands.AnimeCommand;
 import discord4j.core.event.domain.interaction.ChatInputInteractionEvent;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -13,7 +14,8 @@ public class SlashCommandListener {
     private final static List<SlashCommand> commands = new ArrayList<>();
 
     static {
-        commands.add(new TitleCommand());
+        commands.add(new AnimeCommand());
+        commands.add(new MangaCommand());
     }
 
     public static Mono<Void> handle(ChatInputInteractionEvent event) {

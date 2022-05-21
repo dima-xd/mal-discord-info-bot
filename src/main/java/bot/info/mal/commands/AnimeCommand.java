@@ -13,10 +13,10 @@ import java.time.Instant;
 
 import static bot.info.mal.constants.Constants.*;
 
-public class TitleCommand implements SlashCommand {
+public class AnimeCommand implements SlashCommand {
     @Override
     public String getName() {
-        return "title";
+        return "anime";
     }
 
     @Override

@@ -22,10 +22,14 @@ public class Constants {
     public static final String POPULARITY = "popularity";
     public static final String MEDIA_TYPE = "media_type";
     public static final String NUM_EPISODES = "num_episodes";
+    public static final String NUM_CHAPTERS = "num_chapters";
     public static final String COMMA = ",";
 
     public static final String ANIME_FIELDS = ID + COMMA + TITLE + COMMA + LARGE + COMMA
             + SYNOPSIS + COMMA + MEAN + COMMA + RANK + COMMA
             + POPULARITY + COMMA + MEDIA_TYPE + COMMA + NUM_EPISODES;
+    public static final String MANGA_FIELDS = ID + COMMA + TITLE + COMMA + LARGE + COMMA
+            + SYNOPSIS + COMMA + MEAN + COMMA + RANK + COMMA
+            + POPULARITY + COMMA + MEDIA_TYPE + COMMA + NUM_CHAPTERS;
 
 }

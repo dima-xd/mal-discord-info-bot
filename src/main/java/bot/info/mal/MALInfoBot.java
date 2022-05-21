@@ -18,7 +18,7 @@ public class MALInfoBot {
             .login()
             .block();
 
-        List<String> commands = List.of("title.json");
+        List<String> commands = List.of("anime.json", "manga.json");
         try {
             new GlobalCommandRegistrar(client.getRestClient()).registerCommands(commands);
         } catch (Exception e) {

@@ -1,6 +1,6 @@
 package bot.info.mal.beans;
 
-public class Anime {
+public class Manga {
     private int id;
     private String title;
     private String largeImage;
@@ -9,9 +9,9 @@ public class Anime {
     private int rank;
     private int popularity;
     private String mediaType;
-    private int numEpisodes;
+    private int numChapters;
 
-    public Anime(int id, String title, String largeImage, String synopsis, Double mean, int rank, int popularity, String mediaType, int numEpisodes) {
+    public Manga(int id, String title, String largeImage, String synopsis, Double mean, int rank, int popularity, String mediaType, int numChapters) {
         this.id = id;
         this.title = title;
         this.largeImage = largeImage;
@@ -20,7 +20,7 @@ public class Anime {
         this.rank = rank;
         this.popularity = popularity;
         this.mediaType = mediaType;
-        this.numEpisodes = numEpisodes;
+        this.numChapters = numChapters;
     }
 
     public int getId() {
@@ -55,7 +55,7 @@ public class Anime {
         return mediaType;
     }
 
-    public int getNumEpisodes() {
-        return numEpisodes;
+    public int getNumChapters() {
+        return numChapters;
     }
 }

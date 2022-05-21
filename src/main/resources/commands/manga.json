@@ -1,0 +1,12 @@
+{
+  "name": "manga",
+  "description": "Get manga by title.",
+  "options": [
+    {
+      "name": "title",
+      "description": "manga title",
+      "type": 3,
+      "required": true
+    }
+  ]
+}
